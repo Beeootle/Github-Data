@@ -24,19 +24,37 @@ const isOpen = ref(true)
         <li>
           <a href="#">
             <font-awesome-icon :icon="['fas', 'house']" />
-            <span v-show="isOpen"> Home</span>
+            <span v-show="isOpen"> Dashboard</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <font-awesome-icon :icon="['far', 'address-card']" />
-            <span v-show="isOpen"> About</span>
+            <font-awesome-icon :icon="['fas', 'book']" />
+            <span v-show="isOpen"> Repositories</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <font-awesome-icon :icon="['fas', 'phone']" />
-            <span v-show="isOpen"> Contact</span>
+            <font-awesome-icon :icon="['fas', 'chart-line']" />
+            <span v-show="isOpen"> Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <font-awesome-icon :icon="['fas', 'code-branch']" />
+            <span v-show="isOpen"> Pull Requests</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <font-awesome-icon :icon="['fas', 'circle-exclamation']" />
+            <span v-show="isOpen"> Issues</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <font-awesome-icon :icon="['fas', 'user-plus']" />
+            <span v-show="isOpen"> Teams</span>
           </a>
         </li>
         <li>
