@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { RouterLink } from 'vue-router'
 
 const email = ref('')
 const password = ref('')
@@ -39,7 +40,7 @@ function handleLogin() {
         passwordInput.value.focus()
     }
   } else {
-    router.push('/dashboard')
+    router.push('/')
   }
 }
 </script>
