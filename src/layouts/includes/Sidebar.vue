@@ -8,6 +8,7 @@ library.add(faArrowLeft, faArrowRight)
 const isOpen = ref(true)
 </script>
 
+
 <template>
   <div class="app-container">
     <button
@@ -20,6 +21,7 @@ const isOpen = ref(true)
 
     <div :class="['sidebar', { open: isOpen }]">
       <h2 class="sidebar-title" v-show="isOpen">My Sidebar</h2>
+
       <ul class="sidebar-links">
         <li>
           <a href="#">
@@ -28,7 +30,7 @@ const isOpen = ref(true)
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="src/views/dashboard/Repositories.vue">
             <font-awesome-icon :icon="['fas', 'book']" />
             <span v-show="isOpen"> Repositories</span>
           </a>
@@ -64,6 +66,13 @@ const isOpen = ref(true)
           </a>
         </li>
       </ul>
+
+      <div class="signout-section">
+        <a href="#">
+          <font-awesome-icon :icon="['fas', 'right-from-bracket']" />
+          <span v-show="isOpen"> Sign Out</span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -71,6 +80,10 @@ const isOpen = ref(true)
 </template>
 
 <style scoped>
+.app-container {
+  position: relative;
+}
+
 .sidebar {
   width: 80px;
   background-color: #212529;
@@ -116,6 +129,7 @@ const isOpen = ref(true)
 .sidebar-links {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar-links li {
@@ -134,6 +148,29 @@ const isOpen = ref(true)
 }
 
 .sidebar-links a:hover {
+  color: #ffffff;
+}
+
+/* Sign Out Styles */
+.signout-section {
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+  right: 1rem;
+}
+
+.signout-section a {
+  color: #adb5bd;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.signout-section a:hover {
   color: #ffffff;
 }
 </style>
