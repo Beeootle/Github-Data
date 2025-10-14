@@ -1,82 +1,101 @@
 <script setup>
-import { ref } from 'vue'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { useSidebarStore } from '../../stores/sidebar';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faArrowLeft,
+  faArrowRight,
+  faHouse,
+  faBook,
+  faChartLine,
+  faCodeBranch,
+  faCircleExclamation,
+  faUserPlus,
+  faGear,
+  faRightFromBracket
+} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faArrowLeft, faArrowRight)
-const isOpen = ref(true)
+library.add(
+  faArrowLeft,
+  faArrowRight,
+  faHouse,
+  faBook,
+  faChartLine,
+  faCodeBranch,
+  faCircleExclamation,
+  faUserPlus,
+  faGear,
+  faRightFromBracket
+);
+
+const sidebarStore = useSidebarStore();
 </script>
-
 
 <template>
   <div class="app-container">
     <button
       class="toggle-btn"
-      @click="isOpen = !isOpen"
-      :style="{ left: isOpen ? '250px' : '80px' }"
+      @click="sidebarStore.toggleSidebar"
+      :style="{ left: sidebarStore.isOpen ? '250px' : '80px' }"
     >
-      <font-awesome-icon :icon="['fas', isOpen ? 'arrow-left' : 'arrow-right']" />
+      <font-awesome-icon :icon="['fas', sidebarStore.isOpen ? 'arrow-left' : 'arrow-right']" />
     </button>
-
-    <div :class="['sidebar', { open: isOpen }]">
-      <h2 class="sidebar-title" v-show="isOpen">My Sidebar</h2>
+    <div :class="['sidebar', { open: sidebarStore.isOpen }]">
+      <h2 class="sidebar-title" v-show="sidebarStore.isOpen">My Sidebar</h2>
 
       <ul class="sidebar-links">
         <li>
-          <a href="#">
+          <RouterLink to="/">
             <font-awesome-icon :icon="['fas', 'house']" />
-            <span v-show="isOpen"> Dashboard</span>
-          </a>
+            <span v-show="sidebarStore.isOpen"> Dashboard</span>
+          </RouterLink>
         </li>
         <li>
-          <a href="src/views/dashboard/Repositories.vue">
+          <RouterLink to="/repositories">
             <font-awesome-icon :icon="['fas', 'book']" />
-            <span v-show="isOpen"> Repositories</span>
-          </a>
+            <span v-show="sidebarStore.isOpen"> Repositories</span>
+          </RouterLink>
         </li>
         <li>
-          <a href="#">
+          <RouterLink to="/analytics">
             <font-awesome-icon :icon="['fas', 'chart-line']" />
-            <span v-show="isOpen"> Analytics</span>
-          </a>
+            <span v-show="sidebarStore.isOpen"> Analytics</span>
+          </RouterLink>
         </li>
         <li>
-          <a href="#">
+          <RouterLink to="/pullrequests">
             <font-awesome-icon :icon="['fas', 'code-branch']" />
-            <span v-show="isOpen"> Pull Requests</span>
-          </a>
+            <span v-show="sidebarStore.isOpen"> Pull Requests</span>
+          </RouterLink>
         </li>
         <li>
-          <a href="#">
+          <RouterLink to="/issues">
             <font-awesome-icon :icon="['fas', 'circle-exclamation']" />
-            <span v-show="isOpen"> Issues</span>
-          </a>
+            <span v-show="sidebarStore.isOpen"> Issues</span>
+          </RouterLink>
         </li>
         <li>
-          <a href="#">
+          <RouterLink to="/teams">
             <font-awesome-icon :icon="['fas', 'user-plus']" />
-            <span v-show="isOpen"> Teams</span>
-          </a>
+            <span v-show="sidebarStore.isOpen"> Teams</span>
+          </RouterLink>
         </li>
         <li>
-          <a href="#">
+          <RouterLink to="/settings">
             <font-awesome-icon :icon="['fas', 'gear']" />
-            <span v-show="isOpen"> Settings</span>
-          </a>
+            <span v-show="sidebarStore.isOpen"> Settings</span>
+          </RouterLink>
         </li>
       </ul>
 
       <div class="signout-section">
-        <a href="#">
+        <RouterLink to="">
           <font-awesome-icon :icon="['fas', 'right-from-bracket']" />
-          <span v-show="isOpen"> Sign Out</span>
-        </a>
+          <span v-show="sidebarStore.isOpen"> Sign Out</span>
+        </RouterLink>
       </div>
     </div>
   </div>
-
-  <slot />
 </template>
 
 <style scoped>
@@ -151,7 +170,6 @@ const isOpen = ref(true)
   color: #ffffff;
 }
 
-/* Sign Out Styles */
 .signout-section {
   position: absolute;
   bottom: 2rem;

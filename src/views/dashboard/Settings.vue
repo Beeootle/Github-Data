@@ -1,0 +1,5 @@
+<script setup>
+</script>
+<template>
+    <h1 class="h1">Settings</h1>
+</template>

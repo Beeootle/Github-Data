@@ -1,11 +1,8 @@
 <script setup>
-import AppLayout from '@/layouts/AppLayout.vue';
-import { RouterView } from 'vue-router';
+ 
 </script>
 <template>
-    <AppLayout>
-        
-    </AppLayout>
+  <h1 class="h1">Repostories</h1>
 </template>
 <style scoped>
 
