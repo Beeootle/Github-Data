@@ -21,7 +21,7 @@ const router = createRouter({
       component: Index,
     },
     {
-      path: '/reposiories',
+      path: '/repositories',
       name: 'repositories',
       component: Repositories
     },

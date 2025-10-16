@@ -3,13 +3,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import { faEye, faHouse, faArrowLeft, faGear, faPhone, faArrowsRotate, faPlus, faBook, faChartLine, faCodeBranch, 
-  faCircleExclamation, faUserPlus, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
-import { faAddressBook, faAddressCard } from '@fortawesome/free-regular-svg-icons'
+  faCircleExclamation, faUserPlus, faRightFromBracket, faDatabase, faCode } from '@fortawesome/free-solid-svg-icons'
+import { faAddressBook, faAddressCard, faClock, faStar } from '@fortawesome/free-regular-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 // Add all used icons to the library here
 library.add(faEye, faHouse, faAddressBook, faGithub, faArrowLeft, faAddressCard, faGear, faPhone, faArrowsRotate, faPlus, faBook, faChartLine, faCodeBranch, 
-  faCircleExclamation, faUserPlus, faRightFromBracket)
+  faCircleExclamation, faUserPlus, faRightFromBracket, faDatabase, faCode, faClock, faStar)
 
 export default function registerIcons(app) {
   app.component('font-awesome-icon', FontAwesomeIcon)
