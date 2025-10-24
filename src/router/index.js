@@ -6,6 +6,7 @@ import PullRequests from '@/views/dashboard/PullRequests.vue'
 import Issues from '@/views/dashboard/Issues.vue'
 import Teams from '@/views/dashboard/Teams.vue'
 import Settings from '@/views/dashboard/Settings.vue'
+import Auth from '@/views/auth/LoginPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
       name: 'settings',
       component: Settings
     },
+    {
+      path: '/auth',
+      name: 'auth',
+      component: Auth
+    }
   ],
 })
 

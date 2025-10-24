@@ -89,7 +89,7 @@ const sidebarStore = useSidebarStore();
       </ul>
 
       <div class="signout-section">
-        <RouterLink to="">
+        <RouterLink to="/auth">
           <font-awesome-icon :icon="['fas', 'right-from-bracket']" />
           <span v-show="sidebarStore.isOpen"> Sign Out</span>
         </RouterLink>
